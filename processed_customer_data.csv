@@ -1,0 +1,9 @@
+transaction_id,customer_id,product_id,date,gender,city,category,payment_mode,product_name,age_group,income_group,age,income,amount,price,stock,days_since_transaction,purchase_frequency,total_purchase_amount,average_purchase_amount,price_vs_catalogue_diff,amount_boxcox,gender_label_encoded,txn_day,frequent_buyer,high_value_purchase,category_Audio,category_Computer,category_Electronics,category_Mobile Accessories,category_Wearable,payment_Cash,payment_Credit Card,payment_Debit Card,payment_UPI
+T001,101,P001,2025-10-01,Male,Mumbai,Electronics,UPI,Earphones,Young Adult (<=25),Low,24,45000,499,499,50,9,1,499,499.0,0,-1.3117498581782576,1,1,0,0,0,0,1,0,0,0,0,0,1
+T002,103,P003,2025-10-02,Male,Bangalore,Wearable,Credit Card,Smart Watch,Adult (26-35),Low,27,48000,1299,1299,25,8,1,1299,1299.0,0,0.37164356599946724,1,2,0,1,0,0,0,0,1,0,1,0,0
+T003,104,P002,2025-10-03,Female,Ahmedabad,Audio,Debit Card,Bluetooth Speaker,Adult (26-35),High,35,60000,699,699,40,7,1,699,699.0,0,-0.7041281830692306,0,3,0,0,1,0,0,0,0,0,0,1,0
+T004,105,P005,2025-10-05,Male,Pune,Audio,UPI,Headphones,Mature Adult (36+),High,40,75000,1999,1999,30,5,1,1999,1999.0,0,1.0894283943119543,1,5,0,1,1,0,0,0,0,0,0,0,1
+T005,107,P004,2025-10-07,Male,Kolkata,Computer,Cash,Keyboard,Adult (26-35),Medium,29,50000,899,899,60,3,1,899,899.0,0,-0.26093532114773726,1,7,0,0,0,1,0,0,0,1,0,0,0
+T006,108,P006,2025-10-08,Female,Surat,Mobile Accessories,UPI,Power Bank,Adult (26-35),High,33,58000,2599,2599,20,2,1,2599,2599.0,0,1.514665901019432,0,8,0,1,0,0,0,1,0,0,0,0,1
+T007,102,P003,2025-10-09,Female,Delhi,Wearable,Credit Card,Smart Watch,Adult (26-35),Medium,30,55000,1499,1299,25,1,1,1499,1499.0,200,0.6128253592426323,0,9,0,1,0,0,0,0,1,0,1,0,0
+T008,106,P001,2025-10-10,Female,Chennai,Electronics,Cash,Earphones,Young Adult (<=25),Low,22,42000,499,499,50,0,1,499,499.0,0,-1.3117498581782576,0,10,0,0,0,0,1,0,0,1,0,0,0
