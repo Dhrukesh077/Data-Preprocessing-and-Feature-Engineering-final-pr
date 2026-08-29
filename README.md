@@ -122,35 +122,35 @@ notebook stays reproducible.
 ## 🔍 10. Exploratory Data Analysis
 
 ### Univariate
-![Income Distribution](outputs/charts/01_income_distribution.png)
-![Age Distribution](outputs/charts/02_age_distribution.png)
-![Purchase Amount Distribution](outputs/charts/03_purchase_amount_distribution.png)
+![Income Distribution](01_income_distribution.png)
+![Age Distribution](02_age_distribution.png)
+![Purchase Amount Distribution](03_purchase_amount_distribution.png)
 
 Income and age are fairly compact and roughly symmetric; **purchase amount is right-skewed** (skew ≈ 0.81),
 driven by two higher-priced electronics purchases — flagged for transformation later (§17).
 
-![Categorical Distributions](outputs/charts/04_categorical_distributions.png)
+![Categorical Distributions](04_categorical_distributions.png)
 
 Every categorical column is near-unique at this sample size (8 distinct cities, near-even gender split) —
 a signal that One-Hot Encoding for high-cardinality columns like `city` needs care at this scale (§14).
 
 ### Bivariate
-![Income vs Purchase Value](outputs/charts/05_income_vs_purchase_value.png)
-![Age vs Amount](outputs/charts/06_age_vs_amount.png)
-![Amount by Category and Payment](outputs/charts/07_amount_by_category_and_payment.png)
+![Income vs Purchase Value](05_income_vs_purchase_value.png)
+![Age vs Amount](06_age_vs_amount.png)
+![Amount by Category and Payment](07_amount_by_category_and_payment.png)
 
 Customers in the above-median purchase group show a higher average income in this sample; `Audio` and
 `Wearable` categories carry the highest average transaction value.
 
 ### Multivariate
-![Correlation Heatmap](outputs/charts/heatmap_correlation.png)
+![Correlation Heatmap](heatmap_correlation.png)
 
 Only genuinely numeric columns are correlated — categorical text is **never** blindly label-encoded just
 to force it into a correlation matrix. Two real findings: `amount` and `price` are near-perfectly
 correlated (expected — amount *is* the price paid), and `age`/`income` show a very strong r≈0.98
 correlation in this sample, flagged as a likely small-sample artifact worth re-testing with more data.
 
-![Pairplot](outputs/charts/08_pairplot_numeric.png)
+![Pairplot](08_pairplot_numeric.png)
 
 ## 🧩 11. Missing Data Handling
 
@@ -180,8 +180,8 @@ the most defensible choice given the strong `age`↔`income` relationship found 
 | IQR | amount | 1 | -813.5 – 3,086.5 | Retained (genuine high-value item) |
 | Percentile (5/95) | amount | 1 | flagged the ₹2,599 purchase | Winsorized (capped, not dropped) |
 
-![Boxplot Before](outputs/charts/09_outliers_boxplot_before.png)
-![Boxplot After Winsorization](outputs/charts/10_outliers_boxplot_after_winsorize.png)
+![Boxplot Before](09_outliers_boxplot_before.png)
+![Boxplot After Winsorization](10_outliers_boxplot_after_winsorize.png)
 
 **No rows are deleted.** The one flagged high-value transaction (₹2,599 Power Bank) matches the product
 catalogue price exactly — it's a real purchase, not a data error, so deleting it would only shrink an
@@ -209,7 +209,7 @@ Income is binned both by **equal-width** and **quantile** (`pd.qcut`) methods; *
 selected** for the final feature (`income_group`) because it guarantees a balanced split regardless of the
 underlying distribution — important with only 8 data points.
 
-![Income Binning](outputs/charts/11_income_binning.png)
+![Income Binning](11_income_binning.png)
 
 ## 📐 16. Feature Scaling
 
@@ -225,7 +225,7 @@ All five are demonstrated individually plus combined via **`ColumnTransformer`**
 applies `RobustScaler` to `amount` (has a legitimate outlier) and `StandardScaler` to `age`/`income`
 (no outliers) in a single, reusable, leakage-safe step.
 
-![Scaling Comparison](outputs/charts/12_scaling_comparison_amount.png)
+![Scaling Comparison](12_scaling_comparison_amount.png)
 
 ## ⚙️ 17. Feature Transformation
 
@@ -234,7 +234,7 @@ future zero); a guarded `reciprocal` on `stock`.
 **PowerTransformer:** `amount` is strictly positive, so **Box-Cox** is applied directly; **Yeo-Johnson** is
 also shown as the safer default for any future zero/negative values.
 
-![Transformation Comparison](outputs/charts/13_transformation_comparison_amount.png)
+![Transformation Comparison](13_transformation_comparison_amount.png)
 
 | Version | Skewness |
 |---|---|
